@@ -8,7 +8,7 @@
       <ModuleName>mscorlib</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="2E-D1-BC-E8-F8-CB-58-1F-3F-94-F4-CB-5E-75-9F-4E-D8-0E-B1-50">
+    <Module skippedDueTo="Filter" hash="2E-D1-BC-E8-F8-CB-58-1F-3F-94-F4-CB-5E-75-9F-4E-D8-0E-B1-50">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\nunit3-console.exe</ModulePath>
       <ModuleTime>2023-02-21T00:47:04Z</ModuleTime>
       <ModuleName>nunit3-console</ModuleName>
@@ -20,25 +20,25 @@
       <ModuleName>System</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="A8-22-AF-E8-71-B7-BB-BC-5A-9F-18-0F-27-08-2E-92-79-B5-86-67">
+    <Module skippedDueTo="Filter" hash="A8-22-AF-E8-71-B7-BB-BC-5A-9F-18-0F-27-08-2E-92-79-B5-86-67">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\nunit.engine.api.dll</ModulePath>
       <ModuleTime>2023-02-21T00:47:00Z</ModuleTime>
       <ModuleName>nunit.engine.api</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="AF-4F-01-6C-CB-5B-DC-53-4F-F3-D3-53-02-AE-6F-43-8E-A1-E4-70">
+    <Module skippedDueTo="Filter" hash="AF-4F-01-6C-CB-5B-DC-53-4F-F3-D3-53-02-AE-6F-43-8E-A1-E4-70">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\nunit.engine.dll</ModulePath>
       <ModuleTime>2023-02-21T00:47:02Z</ModuleTime>
       <ModuleName>nunit.engine</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="AF-4F-01-6C-CB-5B-DC-53-4F-F3-D3-53-02-AE-6F-43-8E-A1-E4-70">
+    <Module skippedDueTo="Filter" hash="AF-4F-01-6C-CB-5B-DC-53-4F-F3-D3-53-02-AE-6F-43-8E-A1-E4-70">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\nunit.engine.dll</ModulePath>
       <ModuleTime>2023-02-21T00:47:02Z</ModuleTime>
       <ModuleName>nunit.engine</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="F8-64-60-70-B2-24-23-1B-4C-2F-94-D1-68-E8-3E-1A-6F-B9-8A-A7">
+    <Module skippedDueTo="Filter" hash="F8-64-60-70-B2-24-23-1B-4C-2F-94-D1-68-E8-3E-1A-6F-B9-8A-A7">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\nunit.engine.core.dll</ModulePath>
       <ModuleTime>2023-02-21T00:47:02Z</ModuleTime>
       <ModuleName>nunit.engine.core</ModuleName>
@@ -68,7 +68,7 @@
       <ModuleName>System.Runtime.Remoting</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="D1-95-A7-87-1A-0F-5F-19-E7-A2-0B-29-DF-BA-6D-BA-96-3C-9D-5E">
+    <Module skippedDueTo="Filter" hash="D1-95-A7-87-1A-0F-5F-19-E7-A2-0B-29-DF-BA-6D-BA-96-3C-9D-5E">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\testcentric.engine.metadata.dll</ModulePath>
       <ModuleTime>2021-10-30T18:40:32Z</ModuleTime>
       <ModuleName>testcentric.engine.metadata</ModuleName>
@@ -80,13 +80,13 @@
       <ModuleName>mscorlib</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="F5-FB-9A-74-03-83-13-4A-65-5E-5C-56-9C-82-CD-F5-5C-73-FA-21">
+    <Module skippedDueTo="Filter" hash="F5-FB-9A-74-03-83-13-4A-65-5E-5C-56-9C-82-CD-F5-5C-73-FA-21">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\agents\net462\nunit-agent.exe</ModulePath>
       <ModuleTime>2023-02-21T00:47:04Z</ModuleTime>
       <ModuleName>nunit-agent</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="A8-22-AF-E8-71-B7-BB-BC-5A-9F-18-0F-27-08-2E-92-79-B5-86-67">
+    <Module skippedDueTo="Filter" hash="A8-22-AF-E8-71-B7-BB-BC-5A-9F-18-0F-27-08-2E-92-79-B5-86-67">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\agents\net462\nunit.engine.api.dll</ModulePath>
       <ModuleTime>2023-02-21T00:47:00Z</ModuleTime>
       <ModuleName>nunit.engine.api</ModuleName>
@@ -98,7 +98,7 @@
       <ModuleName>System</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="F8-64-60-70-B2-24-23-1B-4C-2F-94-D1-68-E8-3E-1A-6F-B9-8A-A7">
+    <Module skippedDueTo="Filter" hash="F8-64-60-70-B2-24-23-1B-4C-2F-94-D1-68-E8-3E-1A-6F-B9-8A-A7">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\agents\net462\nunit.engine.core.dll</ModulePath>
       <ModuleTime>2023-02-21T00:47:02Z</ModuleTime>
       <ModuleName>nunit.engine.core</ModuleName>
@@ -128,13 +128,13 @@
       <ModuleName>System.Configuration</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="D1-95-A7-87-1A-0F-5F-19-E7-A2-0B-29-DF-BA-6D-BA-96-3C-9D-5E">
+    <Module skippedDueTo="Filter" hash="D1-95-A7-87-1A-0F-5F-19-E7-A2-0B-29-DF-BA-6D-BA-96-3C-9D-5E">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\packages\NUnit.ConsoleRunner.3.16.3\tools\agents\net462\testcentric.engine.metadata.dll</ModulePath>
       <ModuleTime>2021-10-30T18:40:32Z</ModuleTime>
       <ModuleName>testcentric.engine.metadata</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="MissingPdb" hash="A4-96-D3-95-1F-93-62-C9-8F-F9-92-66-CC-A7-01-ED-0C-86-F2-D3">
+    <Module skippedDueTo="Filter" hash="A4-96-D3-95-1F-93-62-C9-8F-F9-92-66-CC-A7-01-ED-0C-86-F2-D3">
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\TestProject1\bin\Debug\net48\nunit.framework.dll</ModulePath>
       <ModuleTime>2022-03-20T17:47:40Z</ModuleTime>
       <ModuleName>nunit.framework</ModuleName>
@@ -158,10 +158,10 @@
       <ModuleName>System.Web</ModuleName>
       <Classes />
     </Module>
-    <Module hash="5E-EC-D4-B1-A4-F4-59-66-4A-F9-FC-84-D9-14-C8-1E-C9-5D-F0-A7">
+    <Module hash="C1-36-4D-BD-63-8E-BB-48-06-BD-0F-F5-4F-2E-9C-E5-7F-02-9B-F2">
       <Summary numSequencePoints="39" visitedSequencePoints="36" numBranchPoints="22" visitedBranchPoints="14" sequenceCoverage="92.31" branchCoverage="63.64" maxCyclomaticComplexity="5" minCyclomaticComplexity="1" maxCrapScore="5" minCrapScore="1.01" visitedClasses="2" numClasses="2" visitedMethods="6" numMethods="6" />
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\TestProject1\bin\Debug\net48\TestProject1.dll</ModulePath>
-      <ModuleTime>2023-06-20T07:11:49.6074544Z</ModuleTime>
+      <ModuleTime>2023-06-20T07:57:06.0186608Z</ModuleTime>
       <ModuleName>TestProject1</ModuleName>
       <Files>
         <File uid="1" fullPath="C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\TestProject1\UnitTest2.cs" />
@@ -336,10 +336,10 @@
       <ModuleName>System.Xml</ModuleName>
       <Classes />
     </Module>
-    <Module hash="FD-0D-0A-54-84-A7-0F-D5-B6-9C-E7-A7-F0-68-A0-35-C2-C9-EF-6B">
+    <Module hash="71-47-DC-2D-22-70-83-09-4F-DE-75-CA-E4-A2-AC-67-F1-9B-9D-83">
       <Summary numSequencePoints="37" visitedSequencePoints="17" numBranchPoints="16" visitedBranchPoints="8" sequenceCoverage="45.95" branchCoverage="50" maxCyclomaticComplexity="7" minCyclomaticComplexity="0" maxCrapScore="56" minCrapScore="0" visitedClasses="1" numClasses="5" visitedMethods="4" numMethods="8" />
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\TestProject1\bin\Debug\net48\WebApplication1.dll</ModulePath>
-      <ModuleTime>2023-06-20T07:11:43.0841391Z</ModuleTime>
+      <ModuleTime>2023-06-20T07:56:59.9679286Z</ModuleTime>
       <ModuleName>WebApplication1</ModuleName>
       <Files>
         <File uid="5" fullPath="C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\WebApplication1\App_Start\BundleConfig.cs" />
@@ -661,10 +661,10 @@
       <ModuleName>System.Web.WebPages</ModuleName>
       <Classes />
     </Module>
-    <Module hash="AF-89-FC-43-1B-27-64-3F-22-0C-4F-9E-F5-61-D6-6A-73-0E-DB-83">
+    <Module hash="2E-36-77-0E-D3-86-63-77-69-DB-B2-F6-A8-E4-EE-40-DF-49-93-3A">
       <Summary numSequencePoints="31" visitedSequencePoints="11" numBranchPoints="11" visitedBranchPoints="5" sequenceCoverage="35.48" branchCoverage="45.45" maxCyclomaticComplexity="7" minCyclomaticComplexity="0" maxCrapScore="56" minCrapScore="0" visitedClasses="1" numClasses="5" visitedMethods="3" numMethods="7" />
       <ModulePath>C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\TestProject1\bin\Debug\net48\WebApplication2.dll</ModulePath>
-      <ModuleTime>2023-06-20T07:11:44.8056765Z</ModuleTime>
+      <ModuleTime>2023-06-20T07:57:01.5303356Z</ModuleTime>
       <ModuleName>WebApplication2</ModuleName>
       <Files>
         <File uid="15" fullPath="C:\GitLab-Runner\builds\t8316\personal\lianhengyu\mvc\WebApplication2\App_Start\BundleConfig.cs" />
