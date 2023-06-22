@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!-- saved from url=(0194)https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#gitlab%E3%81%A7%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <script type="text/javascript" async="" src="./GitLabでコードカバレッジ _ GitLab.JP_files/js"></script><script type="text/javascript" async="" src="./GitLabでコードカバレッジ _ GitLab.JP_files/analytics.js.ダウンロード"></script><script async="" src="./GitLabでコードカバレッジ _ GitLab.JP_files/gtm.js.ダウンロード"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M3BZVQ2');</script>  <meta content="ie=edge" http-equiv="x-ua-compatible"> <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"> <title>GitLabでコードカバレッジ | GitLab.JP</title> <meta content=".NETのコードカバレッジをGitLab上で分析する" name="description"> <meta content="summary_large_image" name="twitter:card"> <meta content="@GitLabJP" name="twitter:site"> <meta content="@GitLabJP" name="twitter:creator"> <meta content="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/" property="og:url"> <meta content="GitLabでコードカバレッジ | GitLab.JP" property="og:title"> <meta content=".NETのコードカバレッジをGitLab上で分析する" name="og:description"> <meta content="https://www.gitlab.jp/images/default-blog-image.png" property="og:image"> <meta content="https://www.gitlab.jp/images/default-blog-image.png" name="twitter:image"> <link href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/" rel="canonical"> <link href="https://www.gitlab.jp/ico/favicon.ico" rel="shortcut icon"> <link href="https://www.gitlab.jp/ico/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"> <link href="https://www.gitlab.jp/ico/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"> <link href="https://www.gitlab.jp/ico/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"> <link href="https://www.gitlab.jp/ico/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144"> <link href="https://www.gitlab.jp/ico/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60"> <link href="https://www.gitlab.jp/ico/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"> <link href="https://www.gitlab.jp/ico/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76"> <link href="https://www.gitlab.jp/ico/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"> <link href="https://www.gitlab.jp/ico/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"> <link href="https://www.gitlab.jp/ico/favicon-192x192.png" rel="icon" sizes="192x192" type="image/png"> <link href="https://www.gitlab.jp/ico/favicon-160x160.png" rel="icon" sizes="160x160" type="image/png"> <link href="https://www.gitlab.jp/ico/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"> <link href="https://www.gitlab.jp/ico/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"> <link href="https://www.gitlab.jp/ico/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"> <link href="./GitLabでコードカバレッジ _ GitLab.JP_files/css" rel="stylesheet"> <link crossorigin="anonymous" href="./GitLabでコードカバレッジ _ GitLab.JP_files/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" rel="stylesheet"> <link href="./GitLabでコードカバレッジ _ GitLab.JP_files/styles.css" rel="stylesheet"><link href="./GitLabでコードカバレッジ _ GitLab.JP_files/highlight.css" rel="stylesheet"> </head> <body data-spy="scroll" data-target=".qnav"> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3BZVQ2" height=0 width=0 style="display:none;visibility:hidden"></iframe></noscript> <header class="navbar" id="main-nav" role="navigation"> <div class="navbar-left"> <a class="navbar-brand animated" href="https://www.gitlab.jp/"> <svg width="140" height="44" viewBox="0 0 1231 342" xmlns="http://www.w3.org/2000/svg" class="nav-logo"> <g fill="none" fill-rule="evenodd"> <g fill="#8C929D" class="wordmark"> <path d="M764.367 94.13h-20.803l.066 154.74h84.155v-19.136h-63.352l-.066-135.603zM907.917 221.7c-5.2 5.434-13.946 10.87-25.766 10.87-15.838 0-22.22-7.797-22.22-17.957 0-15.354 10.637-22.678 33.332-22.678 4.255 0 11.11.472 14.655 1.18v28.586zm-21.51-93.787c-16.8 0-32.208 5.952-44.23 15.858l7.352 12.73c8.51-4.962 18.91-9.924 33.802-9.924 17.02 0 24.585 8.742 24.585 23.39v7.56c-3.31-.71-10.164-1.184-14.42-1.184-36.404 0-54.842 12.757-54.842 39.454 0 23.86 14.656 35.908 36.876 35.908 14.97 0 29.314-6.852 34.278-17.954l3.782 15.118h14.657v-79.14c0-25.04-10.874-41.815-41.84-41.815zM995.368 233.277c-7.802 0-14.657-.945-19.858-3.308v-71.58c7.093-5.908 15.84-10.16 26.95-10.16 20.092 0 27.893 14.174 27.893 37.09 0 32.6-12.53 47.957-34.985 47.957m8.742-105.364c-18.592 0-28.6 12.64-28.6 12.64V120.59l-.066-26.458H955.116l.066 150.957c10.164 4.25 24.11 6.613 39.24 6.613 38.768 0 57.442-24.804 57.442-67.564 0-33.783-17.26-56.227-47.754-56.227M538.238 110.904c18.438 0 30.258 6.142 38.06 12.285l8.938-15.477c-12.184-10.678-28.573-16.417-46.053-16.417-44.204 0-75.17 26.932-75.17 81.267 0 56.935 33.407 79.14 71.624 79.14 19.148 0 35.46-4.488 46.096-8.976l-.435-60.832V162.76h-56.734v19.135h36.167l.437 46.184c-4.727 2.362-13 4.252-24.11 4.252-30.73 0-51.297-19.32-51.297-60.006 0-41.34 21.275-61.422 52.478-61.422M684.534 94.13h-20.33l.066 25.988v89.771c0 25.04 10.874 41.814 41.84 41.814 4.28 0 8.465-.39 12.53-1.126v-18.245c-2.943.45-6.083.707-9.455.707-17.02 0-24.585-8.74-24.585-23.387v-61.895h34.04v-17.01H684.6l-.066-36.617zM612.62 248.87h20.33V130.747h-20.33v118.12zM612.62 114.448h20.33V94.13h-20.33v20.318z"></path> </g> <path d="M185.398 341.13l68.013-209.322H117.39L185.4 341.13z" fill="#E24329" class="logo-svg-shape logo-dark-orange-shape"></path> <path d="M185.398 341.13l-68.013-209.322h-95.32L185.4 341.128z" fill="#FC6D26" class="logo-svg-shape logo-orange-shape"></path> <path d="M22.066 131.808l-20.67 63.61c-1.884 5.803.18 12.16 5.117 15.744L185.398 341.13 22.066 131.807z" fill="#FCA326" class="logo-svg-shape logo-light-orange-shape"></path> <path d="M22.066 131.808h95.32L76.42 5.735c-2.107-6.487-11.284-6.487-13.39 0L22.065 131.808z" fill="#E24329" class="logo-svg-shape logo-dark-orange-shape"></path> <path d="M185.398 341.13l68.013-209.322h95.32L185.4 341.128z" fill="#FC6D26" class="logo-svg-shape logo-orange-shape"></path> <path d="M348.73 131.808l20.67 63.61c1.884 5.803-.18 12.16-5.117 15.744L185.398 341.13 348.73 131.807z" fill="#FCA326" class="logo-svg-shape logo-light-orange-shape"></path> <path d="M348.73 131.808h-95.32L294.376 5.735c2.108-6.487 11.285-6.487 13.392 0l40.963 126.073z" fill="#E24329" class="logo-svg-shape logo-dark-orange-shape"></path> </g> </svg> </a> </div> <div class="navbar-right"> <ul> <li> <a class="main-nav-link" href="https://www.gitlab.jp/stages-devops-lifecycle/"> 製品 </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/pricing/"> 料金 </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/install/"> インストール </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/links/"> リンク </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/blog/"> ブログ </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/sponsors/"> スポンサー </a> </li> </ul> </div> <div class="mobile-icons"> <button aria-label="Search" class="search-icon js-search-toggle" type="button"> <i class="fas fa-search"></i> </button> <button class="mobile-icon" id="mobile-icon"> <div class="icon-bar"></div> <div class="icon-bar"></div> <div class="icon-bar"></div> </button> </div> <div class="display-none mobile-menu" id="mobile-menu"> <button class="exit-icon-container" id="exit-icon"> <img class="exit-icon" src="./GitLabでコードカバレッジ _ GitLab.JP_files/x.svg"> </button> <ul> <li> <a class="main-nav-link" href="https://www.gitlab.jp/stages-devops-lifecycle/"> 製品 </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/pricing/"> 料金 </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/install/"> インストール </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/links/"> リンク </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/blog/"> ブログ </a> </li> <li> <a class="main-nav-link" href="https://www.gitlab.jp/sponsors/"> スポンサー </a> </li> </ul> </div> </header> <script src="./GitLabでコードカバレッジ _ GitLab.JP_files/mobile-menu.js.ダウンロード"></script> <script src="./GitLabでコードカバレッジ _ GitLab.JP_files/tweenmax.min.js.ダウンロード"></script> <div class="blog article"> <div class="cover" style="background-image: url(/images/default-blog-image.png);"> <div class="overlay"> <div class="wrapper header"> <span class="date"> 2021年09月27日 </span> <span>-</span> <span class="author"> Tomo Masakura <a href="https://gitlab.com/masakura"><span>&nbsp;</span> <span class="author-gitlab"> <i class="fab fa-gitlab"></i> </span> </a><a href="https://twitter.com/tomo_masakura"><span>&nbsp;</span> <span class="author-twitter"> <i class="fab fa-twitter"></i> </span> </a></span> <h1> GitLabでコードカバレッジ </h1> <p class="description"> .NETのコードカバレッジをGitLab上で分析する </p> </div> </div> </div> <div class="wrapper body"> <div class="category-back-link"> </div> <div class="content"> <p>これは.NETでコードカバレッジを取得して、それをGitLabのマージリクエストで確認する方法を書いたブログです。</p> <ul id="markdown-toc"> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#gitlab%E3%81%A7%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B" id="markdown-toc-gitlabでコードカバレッジを確認する">GitLabでコードカバレッジを確認する</a> <ul> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E7%B7%8F%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E7%8E%87%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B" id="markdown-toc-総カバレッジ率を確認する">総カバレッジ率を確認する</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E5%A4%89%E6%9B%B4%E3%81%95%E3%82%8C%E3%81%9F%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B" id="markdown-toc-変更されたコードのコードカバレッジを確認する">変更されたコードのコードカバレッジを確認する</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E8%A9%B3%E7%B4%B0%E3%81%AA%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B" id="markdown-toc-詳細なコードカバレッジレポートを確認する">詳細なコードカバレッジレポートを確認する</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E5%8D%98%E4%BD%93%E3%83%86%E3%82%B9%E3%83%88%E7%B5%90%E6%9E%9C%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E3%81%8A%E3%81%BE%E3%81%91" id="markdown-toc-単体テスト結果を確認するおまけ">単体テスト結果を確認する(おまけ)</a></li> </ul> </li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#gitlab%E3%81%AB%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B" id="markdown-toc-gitlabに設定する">GitLabに設定する</a> <ul> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#net%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B" id="markdown-toc-netプロジェクトを作る">.NETプロジェクトを作る</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#gitlab%E3%81%A7%E5%8D%98%E4%BD%93%E3%83%86%E3%82%B9%E3%83%88%E3%81%AE%E5%AE%9F%E8%A1%8C" id="markdown-toc-gitlabで単体テストの実行">GitLabで単体テストの実行</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E3%82%92%E5%8F%96%E3%82%8B" id="markdown-toc-コードカバレッジを取る">コードカバレッジを取る</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E3%83%9E%E3%83%BC%E3%82%B8%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E5%B7%AE%E5%88%86%E3%81%A7%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8" id="markdown-toc-マージリクエストのコード差分でのコードカバレッジ">マージリクエストのコード差分でのコードカバレッジ</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E8%A9%B3%E7%B4%B0%E3%81%AA%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88" id="markdown-toc-詳細なコードカバレッジレポート">詳細なコードカバレッジレポート</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E7%B7%8F%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E7%8E%87" id="markdown-toc-総カバレッジ率">総カバレッジ率</a></li> </ul> </li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E3%83%9E%E3%83%BC%E3%82%B8%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%A7%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B" id="markdown-toc-マージリクエストでコードカバレッジを分析する">マージリクエストでコードカバレッジを分析する</a> <ul> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E8%BB%BD%E6%B8%9B%E7%A8%8E%E7%8E%87%E3%81%AE%E5%B0%8E%E5%85%A5" id="markdown-toc-軽減税率の導入">軽減税率の導入</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E7%B7%8F%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E7%8E%87-1" id="markdown-toc-総カバレッジ率-1">総カバレッジ率</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E3%82%B3%E3%83%BC%E3%83%89%E5%B7%AE%E5%88%86%E3%81%A7%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8" id="markdown-toc-コード差分でのコードカバレッジ">コード差分でのコードカバレッジ</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E8%A9%B3%E7%B4%B0%E3%81%AA%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88-1" id="markdown-toc-詳細なコードカバレッジレポート-1">詳細なコードカバレッジレポート</a></li> </ul> </li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E6%9C%80%E5%BE%8C%E3%81%AB" id="markdown-toc-最後に">最後に</a></li> <li><a href="https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88%E3%81%9F%E3%81%84%E6%96%B9%E5%90%91%E3%81%91-%E3%81%8A%E3%81%BE%E3%81%91" id="markdown-toc-サンプルプロジェクトを書き換えたい方向け-おまけ">サンプルプロジェクトを書き換えたい方向け (おまけ)</a></li> </ul> <p>このブログ及びサンプルプロジェクトは.NETを利用しています。ですが、他の言語でもGitLab側の設定はあまり変わりません。他の言語でも参考になると思います。</p> <h2 id="gitlabでコードカバレッジを確認する">GitLabでコードカバレッジを確認する</h2> <p>GitLabのマージリクエストなどでコードカバレッジを確認する方法はいくつかあります。このブログではそれら全ての設定方法を解説していますので、長文になります。ブログを読みながら、設定をしてこうなるのかーと理解するのはかなり大変なので、<a href="https://gitlab.com/creationline/gitlab-coverage-dotnet-sample">サンプルプロジェクト</a>を用意して、先に概要をつかめるようにしています。</p> <h3 id="総カバレッジ率を確認する">総カバレッジ率を確認する</h3> <p><a href="https://gitlab.com/creationline/gitlab-coverage-dotnet-sample/-/merge_requests/1">お試しのマージリクエスト</a>を開いてください。<code>パイプライン #....</code> のすぐ下辺りで総カバレッジ率を確認できます。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/total-coverage-rate.png" alt="総カバレッジ率" class="shadow small center"> 総カバレッジ率</p> <p>総カバレッジ率は、マージリクエスト以外にも、GitLabプロジェクトのサイドメニューの<code>分析</code>-&gt;<code>リポジトリ</code>から推移グラフで確認できます。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/code_coverage_graph_v13_1.png" alt="総カバレッジ率の推移グラフ" class="shadow medium center"> 総カバレッジ率の推移グラフ</p> <p>(サンプルプロジェクトの推移グラフはデータが少なくて面白くないので、<a href="https://docs.gitlab.com/ee/ci/pipelines/settings.html#view-code-coverage-history">GitLabの公式ドキュメント</a>から画像を引用しています)</p> <h3 id="変更されたコードのコードカバレッジを確認する">変更されたコードのコードカバレッジを確認する</h3> <p>マージリクエストの変更タブにあるコード差分でコードカバレッジを確認できます。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/code-coverage.png" alt="マージリクエストのコード差分でのコードカバレッジ" class="shadow medium center"> マージリクエストのコード差分でのコードカバレッジ</p> <p>次の手順で試してみてください。</p> <ol> <li><a href="https://gitlab.com/creationline/gitlab-coverage-dotnet-sample/-/merge_requests/1">お試しのマージリクエスト</a>を開きます</li> <li><code>変更</code>タブをクリックします</li> <li>緑や赤の縦線がコード差分に表示されるまでリロードしてください</li> </ol> <h3 id="詳細なコードカバレッジレポートを確認する">詳細なコードカバレッジレポートを確認する</h3> <p>コードカバレッジの生のデータを見ても、わかる人は少ないと思います。人間が読んでもわかりやすいレポート(一般的にHTML形式)に変換するのが一般的です。それをGitLabから確認できます。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/coverage-report-summary.png" alt="コードカバレッジの概要" class="shadow medium center"> コードカバレッジの概要</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/coverage-report-class.png" alt="クラスごとの詳細なコードカバレッジ" class="shadow medium center"> クラスごとの詳細なコードカバレッジ</p> <p>次の手順で試してみてください。</p> <ol> <li><a href="https://gitlab.com/creationline/gitlab-coverage-dotnet-sample/-/merge_requests/1">お試しのマージリクエスト</a>を開きます</li> <li><code>1 件の公開されたアーティファクトを表示</code>をクリックして開きます</li> <li><code>coverage</code> -&gt; <code>coverage</code> -&gt; <code>index.html</code> とクリックすると、詳細なカバレッジレポートが表示されます</li> </ol> <h3 id="単体テスト結果を確認するおまけ">単体テスト結果を確認する(おまけ)</h3> <p>GitLabは単体テスト結果を表示する機能があります。コードカバレッジとは違いますが、せっかくなのでまとめて紹介します。</p> <p>次の手順で試してみてください。</p> <ol> <li><a href="https://gitlab.com/creationline/gitlab-coverage-dotnet-sample/-/merge_requests/1">お試しのマージリクエスト</a>を開きます</li> <li><code>テストの要約...</code>のところの<code>展開</code>をクリックすると、マージリクエストで変わったテスト結果だけが表示されます</li> </ol> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/test-report-mr.png" alt="マージリクエストの単体テスト結果要約" class="shadow medium center"> マージリクエストの単体テスト結果要約</p> <p><code>レポート全体を見る</code>をクリックすると、全ての詳細な単体テスト結果にアクセスできます。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/test-report-pipeline.png" alt="パイプラインの単体テスト結果要約" class="shadow medium center"> パイプラインの単体テスト結果要約</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/test-report-detail.png" alt="テスト結果の単体詳細" class="shadow medium center"> テスト結果の単体詳細</p> <p>マージリクエストからだけでなく、各パイプラインの<code>テスト</code>タブでも確認できます。</p> <h2 id="gitlabに設定する">GitLabに設定する</h2> <p>それでは.NETのプロジェクトを作成して、コードカバレッジをGitLabで確認できるように設定していきます。</p> <h3 id="netプロジェクトを作る">.NETプロジェクトを作る</h3> <p>消費税の計算をする機能を単体テストを行い、そのコードカバレッジを取ります。</p> <p>現時点の消費税の仕様は次のとおりです。</p> <ul> <li>消費税率は一律10%とする</li> <li>小数以下は切り捨てる</li> </ul> <p>後で、これに軽減税率(8%)や消費税なしを仕様を追加し、そのコードカバレッジを分析します。</p> <p>Visual Studioソリューションの構成は次のとおりです。</p> <table> <thead> <tr> <th>プロジェクト名</th> <th>&nbsp;</th> </tr> </thead> <tbody> <tr> <td>ConsumptionTax</td> <td>消費税の計算をするクラスライブラリプロジェクト</td> </tr> <tr> <td>ConsumptionTax.Tests</td> <td><code>ConsumptionTax</code> クラスライブラリのテストプロジェクト</td> </tr> </tbody> </table> <p>早速プロジェクトを作りましょう。</p> <div class="highlight"><pre class="highlight shell"><code><span class="nb">mkdir </span>gitlab-coverage-dotnet-sample
+<span class="nb">cd </span>gitlab-coverage-dotnet-sample
+dotnet new sln
+dotnet new classlib <span class="nt">-n</span> ConsumptionTax
+dotnet sln add ConsumptionTax
+dotnet new xunit <span class="nt">-n</span> ConsumptionTax.Tests
+dotnet sln add ConsumptionTax.Tests
+dotnet add ConsumptionTax.Tests reference ConsumptionTax
+</code></pre></div> <p><code>ConsumptionTax\消費税.cs</code> クラスを作成します。(この時点では消費税率は一律10%です)</p> <div class="highlight"><pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">ConsumptionTax</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="err">消費税</span>
+    <span class="err">{</span>
+        <span class="nc">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="err">消費税額</span><span class="p">(</span><span class="kt">int</span> <span class="err">税抜金額</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="err">税額</span> <span class="p">=</span> <span class="err">税抜金額</span> <span class="p">*</span> <span class="m">0.10</span><span class="n">m</span><span class="p">;</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Floor</span><span class="p">(</span><span class="err">税額</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div> <p><code>ConsumptionTax.Tests\消費税のテスト.cs</code> クラスを作成します。</p> <div class="highlight"><pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">Xunit</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">ConsumptionTax.Tests</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="err">消費税のテスト</span>
+    <span class="err">{</span>
+        <span class="err">[</span><span class="nc">Fact</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="err">税抜</span><span class="m">100</span><span class="err">円の消費税額は</span><span class="m">10</span><span class="err">円</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">actual</span> <span class="p">=</span> <span class="err">消費税</span><span class="p">.</span><span class="err">消費税額</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div> <p>クラスを追加したら、単体テストを実行します。</p> <div class="highlight"><pre class="highlight shell"><code>dotnet <span class="nb">test</span>
+</code></pre></div> <p>次のように全てのテストが成功することを確認してください。</p> <div class="highlight"><pre class="highlight shell"><code>...
+
+テスト実行を開始しています。お待ちください...
+合計 1 個のテスト ファイルが指定されたパターンと一致しました。
+
+成功!   -失敗:     0、合格:     2、スキップ:     0、合計:     1、期間: &lt; 1 ms - ...
+</code></pre></div> <p>あとはGitLabにプロジェクトを作成してこのVisual StudioソリューションをGitLabのプロジェクトにプッシュしてください。</p> <h3 id="gitlabで単体テストの実行">GitLabで単体テストの実行</h3> <p>GitLabには単体テストの結果を表示する機能があります。コードカバレッジではありませんが、せっかくですのでこの機能の設定方法も紹介します。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/test-report-mr.png" alt="マージリクエストでの単体テスト結果要約" class="shadow medium center"> マージリクエストでの単体テスト結果要約</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/test-report-detail.png" alt="単体テスト結果詳細" class="shadow medium center"> 単体テスト結果詳細</p> <p>GitLabで単体テストの結果を確認するためには、レポートがJUnit形式でなければなりませんので、JUnit形式で出力するテストレポーターを組み込みます。</p> <p>テストレポーターはいくつかありますが、<a href="https://github.com/spekt/junit.testlogger">JunitXml.TestLogger</a>はGitLab CIでの設定例も紹介されているので、採用します。</p> <p>まずはテストプロジェクトにJunitXml.TestLoggerを追加します。</p> <div class="highlight"><pre class="highlight shell"><code>dotnet add ConsumptionTax.Tests package JunitXml.TestLogger
+</code></pre></div> <p>公式サイトの<a href="https://github.com/spekt/junit.testlogger/blob/master/docs/gitlab-recommendation.md">GitLab CI/CD の推奨設定</a>を参考にしてJUnit形式のレポートを出力します。次のコマンドを実行します。</p> <div class="highlight"><pre class="highlight shell"><code>dotnet <span class="nb">test</span> <span class="nt">--test-adapter-path</span>:. <span class="nt">--logger</span>:<span class="s2">"junit;LogFilePath=../artifacts/{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"</span>
+</code></pre></div> <p>ファイル<code>artifacts\ConsumptionTax.Tests-test-result.xml</code>が出力されていることを確認してください。(レポートファイルの出力先は、カレントディレクトリではなく、各テストプロジェクトからの相対ディレクトリなことに注意してください)</p> <p>そして、GitLab CIに組み込みます。<code>.gitlab-ci.yml</code>ファイルを次のように作成します。</p> <div class="highlight"><pre class="highlight yaml"><code><span class="na">image</span><span class="pi">:</span> <span class="s">mcr.microsoft.com/dotnet/sdk:5.0</span>
+
+<span class="na">test</span><span class="pi">:</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="pi">|</span>
+      <span class="s">dotnet test \</span>
+        <span class="s">--test-adapter-path:. \</span>
+        <span class="s">--logger:"junit;LogFilePath=${CI_PROJECT_DIR}/artifacts/{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"</span>
+  <span class="na">artifacts</span><span class="pi">:</span>
+    <span class="na">reports</span><span class="pi">:</span>
+      <span class="na">junit</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./artifacts/*test-result.xml</span>
+</code></pre></div> <p><code>artifacts</code>キーワードを使うと、アーティファクトをアップロードしてGitLabで確認できるようになります。<code>reports</code>キーワードは特別なアーティファクトのアップロードに用いられます。例えば、<code>junit</code>キーワードを使ってJUnit形式のレポートをアップロードをすると、そのファイルをGitLabが解析し、テスト結果をGitLabで確認することができるようになります。</p> <p>もちろん、<code>junit</code>キーワード以外にも、コードカバレッジレポートをアップロードするための<code>cobertura</code>キーワードなど、<a href="https://docs.gitlab.com/ee/ci/yaml/#artifactsreports">他にもあります</a>。</p> <p><code>.gitlab-ci.yml</code>ファイルの作成が終わったら、コミットしてGitLabにプッシュしてください。GitLab CIパイプラインが開始され、単体テストが実行されます。</p> <p>GitLabの該当プロジェクトのサイドメニューから<code>CI/CD</code> -&gt;<code>パイプライン</code>をクリックし、一番上にある最新のパイプラインをクリックしてください。そこの<code>テスト</code>タブを開くと単体テストの詳細を見ることができます。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/test-report-pipeline.png" alt="パイプラインのテストタブ" class="shadow medium center"> パイプラインのテストタブ</p> <h3 id="コードカバレッジを取る">コードカバレッジを取る</h3> <p>.NETの単体テストでコードカバレッジを取る方法は、.NETの公式ドキュメントの<a href="https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-code-coverage">単体テストにコードカバレッジを使用する</a>に書かれています。こちらを参考にします。</p> <p>次のコマンドを実行します。</p> <div class="highlight"><pre class="highlight shell"><code>dotnet <span class="nb">test</span> <span class="nt">--collect</span>:<span class="s2">"XPlat Code Coverage"</span>
+</code></pre></div> <p>ファイル<code>ConsumptionTax.Tests\TestResults\....\coverage.cobertura.xml</code>が出力されているはずです。</p> <p>このコードカバレッジのXMLファイルは生データで、そのままでは役に立ちません。GitLabでわかりやすく表示する設定をしていきます。</p> <h3 id="マージリクエストのコード差分でのコードカバレッジ">マージリクエストのコード差分でのコードカバレッジ</h3> <p>GitLabのマージリクエストの<code>変更</code>タブにあるコード差分でコードカバレッジを確認する設定をします。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/code-coverage.png" alt="マージリクエストのコード差分でのコードカバレッジ" class="shadow medium center"> マージリクエストのコード差分でのコードカバレッジ</p> <p>単体テスト結果のときのように、<code>reports:cobertura</code>にコードカバレッジのXMLファイルを添付するだけです。</p> <p><code>.gitlab-ci.yml</code>の<code>test</code>ジョブを次のように書き換えます。</p> <div class="highlight"><pre class="highlight yaml"><code><span class="na">test</span><span class="pi">:</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">dotnet tool restore</span>
+    <span class="pi">-</span> <span class="pi">|</span>
+      <span class="s">dotnet test \</span>
+        <span class="s">--test-adapter-path:. \</span>
+        <span class="s">--logger:"junit;LogFilePath=${CI_PROJECT_DIR}/artifacts/{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose" \</span>
+        <span class="s">--collect:"XPlat Code Coverage"</span>
+  <span class="na">artifacts</span><span class="pi">:</span>
+    <span class="na">reports</span><span class="pi">:</span>
+      <span class="na">junit</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./artifacts/*test-result.xml</span>
+      <span class="na">cobertura</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./**/coverage.cobertura.xml</span>
+</code></pre></div> <p>ただし、.NETのコードカバレッジツールが出力した<code>coverage.cobertura.xml</code>をGitLabがうまく処理できない場合があります。それは、コードカバレッジ対象のクラスが一つしかないときです。実際の開発プロジェクトではありえませんが、このプロジェクトは該当します。</p> <p>そのバグ回避のために、<code>ConsumptionTax\Dummy.cs</code>ファイルを作成します。(実際の開発プロジェクトでは不要です)</p> <div class="highlight"><pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">ConsumptionTax</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Dummy</span>
+    <span class="p">{</span>
+        <span class="c1">// coverlet.collector によるカバレッジの取得は</span>
+        <span class="c1">// カバレッジ対象にできるクラスファイルが複数ないと</span>
+        <span class="c1">// GitLab が認識できる形式にならない。</span>
+        <span class="c1">// そのためのダミーファイル。</span>
+
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">DummyMethod</span><span class="p">()</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div> <p>修正が終わったら、コミットしてGitLabにプッシュしてください。GitLabプロジェクトのサイドメニューの<code>CI/CD</code> -&gt;<code>パイプライン</code>をクリックして、該当パイプラインの一番右のボタン-&gt;<code>Download test:cobertura</code>をクリックしてください。コードカバレッジのXMLファイルをダウンロードできます。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/download-cobertura-artifact.png" alt="coverage.covertura.xmlのダウンロード" class="shadow medium center"> coverage.covertura.xmlのダウンロード</p> <p>これでマージリクエストのコード差分でコードカバレッジを確認できるようになりました。あとでマージリクエストを作成して、分析していきます。</p> <h3 id="詳細なコードカバレッジレポート">詳細なコードカバレッジレポート</h3> <p>マージリクエストのコード差分で確認できるコードカバレッジは限定的です。変更されていないファイルのコードカバレッジは確認できませんし、クラスごとのカバレッジ率も確認できません。</p> <p>コードカバレッジを詳細なHTML形式のレポートに変換し、それをGitLabで確認できるようにする設定をします。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/coverage-report-summary.png" alt="コードカバレッジの概要" class="shadow medium center"> コードカバレッジの概要</p> <p>.NETの公式ドキュメントの<a href="https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-code-coverage#generate-reports">単体テストにコードカバレッジを使用する</a>に<a href="https://github.com/danielpalme/ReportGenerator">ReportGenerator</a>を利用したHTML化の方法が書かれていますので、これに参考にします。</p> <p>ReportGeneratorは.NET Tools版がありますので、これを利用します。</p> <p>まずはプロジェクトローカルに.NET Toolsをインストールできるようにします。</p> <div class="highlight"><pre class="highlight shell"><code>dotnet new tool-manifest
+</code></pre></div> <p>次にReportGeneratorの.NET Tools版をインストールします。</p> <div class="highlight"><pre class="highlight shell"><code>dotnet tool <span class="nb">install </span>dotnet-reportgenerator-globaltool
+</code></pre></div> <p>わかりやすいHTMLレポートを作成します。</p> <div class="highlight"><pre class="highlight shell"><code>dotnet reportgenerator <span class="nt">-reports</span>:./<span class="k">**</span>/coverage.cobertura.xml <span class="nt">-targetdir</span>:coverage <span class="nt">-reporttypes</span>:Html
+</code></pre></div> <p><code>coverage</code>フォルダーにファイル<code>index.html</code>を始めとしたファイルが生成されています。ファイル<code>coverage\index.html</code>をダブルクリックしてウェブブラウザーで表示してくみてください。</p> <p>最後にこのHTMLファイルをGitLab アーティファクトにアップロードして、GitLab上で確認できるようにします。</p> <p>なお、この機能はGitLab Pagesを必要とします。自前のGitLabの場合はGitLab Pagesが使えるか事前にご確認ください。</p> <p><code>.gitlab-ci.yml</code>の<code>test</code>ジョブを次のように書き換えます。</p> <div class="highlight"><pre class="highlight yaml"><code><span class="na">test</span><span class="pi">:</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">dotnet tool restore</span>
+    <span class="pi">-</span> <span class="pi">|</span>
+      <span class="s">dotnet test \</span>
+        <span class="s">--test-adapter-path:. \</span>
+        <span class="s">--logger:"junit;LogFilePath=${CI_PROJECT_DIR}/artifacts/{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose" \</span>
+        <span class="s">--collect:"XPlat Code Coverage"</span>
+  <span class="na">after_script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="pi">|</span>
+      <span class="s">dotnet reportgenerator \</span>
+        <span class="s">-reports:./**/coverage.cobertura.xml \</span>
+        <span class="s">-targetdir:coverage \</span>
+        <span class="s">-reporttypes:Html</span>
+  <span class="na">artifacts</span><span class="pi">:</span>
+    <span class="na">when</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">expose_as</span><span class="pi">:</span> <span class="s">coverage</span>
+    <span class="na">paths</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">coverage/</span>
+    <span class="na">reports</span><span class="pi">:</span>
+      <span class="na">junit</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./artifacts/*test-result.xml</span>
+      <span class="na">cobertura</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./**/coverage.cobertura.xml</span>
+</code></pre></div> <p><code>when: always</code>および<code>after_script</code>は失敗した単体テストがあってもレポートの作成とアーティファクトへのアップロードをするためです。</p> <p><code>paths</code>キーワードで、GitLabにアップロードするアーティファクトにHTMLレポートのフォルダーを指定して、レポートの画像ファイルも含めて全て指定します。</p> <p><code>expose_as</code>キーワードはマージリクエストにアーティファクトへ直接ジャンプするリンクを表示します。今はマージリクエストを作っていないので確認できませんが、次のスクリーンショットのようになります。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/expose-as.png" alt="マージリクエストのカバレッジレポートへのリンク" class="shadow medium center"> マージリクエストのカバレッジレポートへのリンク</p> <p>GitLabの該当プロジェクトのサイドメニューで<code>CI/CD</code> -&gt;<code>パイプライン</code>をクリックして、該当パイプラインを表示します。次に、<code>test</code>ジョブを開いて<code>ブラウズ</code>で<code>index.html</code>ファイルを探して表示してください。詳細なコードカバレッジレポートが表示されます。</p> <p>アーティファクトにアップロードされたレポートは、そのうち削除されます。削除されないようにするには、ジョブページの右にある<code>維持</code>ボタンをクリックしてください。もしくは、<code>.gitlab-ci.yml</code>ファイルの<a href="https://docs.gitlab.com/ee/ci/yaml/#artifactsexpire_in"><code>expire_in</code>キーワード</a>で期限を設定できます。</p> <p>余談ですが、詳細なレポートグラフをHTMLに変換してGitLabで確認する方法はコードカバレッジだけでなく、他のレポートにも応用ができます。</p> <h3 id="総カバレッジ率">総カバレッジ率</h3> <p>GitLabで総カバレッジ率を確認できるようにしましょう。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/total-coverage-rate.png" alt="総カバレッジ率" class="shadow small center"> 総カバレッジ率</p> <p>GitLabはGitLab CIのジョブのログに出力される総カバレッジ率の数値を読み込むことができます。</p> <p>例えば、次はNode.jsのテスティングフレームワークのJestでの出力の一部ですが、GitLabはこの内容から総カバレッジ率を読み取ります。</p> <div class="highlight"><pre class="highlight plaintext"><code>...
+
+ PASS  ./sum.test.js
+  ✓ adds 1 + 2 to equal 3 (1 ms)
+
+----------|---------|----------|---------|---------|-------------------
+File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------|---------|----------|---------|---------|-------------------
+All files |     100 |      100 |     100 |     100 |                   
+ sum.js   |     100 |      100 |     100 |     100 |                   
+----------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+
+...
+</code></pre></div> <p>残念ながら、<code>dotnet test --collect:"XPlat Code Coverage"</code>の出力には総カバレッジ率が含まれていません。HTML化したレポートには含まれていますので、<code>grep 'Line coverage:' coverage/index.html</code>として、総カバレッジ率をジョブに出力します。(HTMLタグが含まれているのはかっこ悪いですが…)</p> <div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;tr&gt;&lt;th&gt;</span>Line coverage:<span class="nt">&lt;/th&gt;&lt;td&gt;</span>58.3% (7 of 12)<span class="nt">&lt;/td&gt;&lt;/tr&gt;</span>
+</code></pre></div> <p>ファイル<code>.gitlab-ci.yml</code>の<code>test</code>ジョブを次のように修正します。</p> <div class="highlight"><pre class="highlight yaml"><code><span class="na">test</span><span class="pi">:</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">dotnet tool restore</span>
+    <span class="pi">-</span> <span class="pi">|</span>
+      <span class="s">dotnet test \</span>
+        <span class="s">--test-adapter-path:. \</span>
+        <span class="s">--logger:"junit;LogFilePath=${CI_PROJECT_DIR}/artifacts/{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose" \</span>
+        <span class="s">--collect:"XPlat Code Coverage"</span>
+  <span class="na">after_script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="pi">|</span>
+      <span class="s">dotnet reportgenerator \</span>
+        <span class="s">-reports:./**/coverage.cobertura.xml \</span>
+        <span class="s">-targetdir:coverage \</span>
+        <span class="s">-reporttypes:Html</span>
+    <span class="pi">-</span> <span class="s">grep 'Line coverage:' coverage/index.html</span>
+  <span class="na">coverage</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/Line</span><span class="nv"> </span><span class="s">coverage:.*%/'</span>
+  <span class="na">artifacts</span><span class="pi">:</span>
+    <span class="na">when</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">expose_as</span><span class="pi">:</span> <span class="s">coverage</span>
+    <span class="na">paths</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">coverage/</span>
+    <span class="na">reports</span><span class="pi">:</span>
+      <span class="na">junit</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./artifacts/*test-result.xml</span>
+      <span class="na">cobertura</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">./**/coverage.cobertura.xml</span>
+</code></pre></div> <p><code>coverage: '/Line coverage:.*%/'</code>は総カバレッジ率が出力されている行を指定するためのものです。</p> <p>修正が終わったらコミットしてGitLabにプッシュします。</p> <p>単体テストと同じようにパイプラインから<code>test</code>ジョブを開きます。ジョブが完了すると、右上に総カバレッジ率が表示されます。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/job-coverage-rate.png" alt="ジョブの総カバレッジ率" class="shadow medium center"> ジョブの総カバレッジ率</p> <p>以上でコードカバレッジをGitLabで確認するための設定は全て終わりました。</p> <h2 id="マージリクエストでコードカバレッジを分析する">マージリクエストでコードカバレッジを分析する</h2> <p>設定が終わったので、マージリクエストを作って実際にコードカバレッジを分析してみましょう。</p> <h3 id="軽減税率の導入">軽減税率の導入</h3> <p>サンプルプロジェクトを利用している人はこのセクションの修正は終わっています。ファイルを修正する必要はありません。</p> <p>まず、ブランチを作成します。</p> <div class="highlight"><pre class="highlight shell"><code>git checkout <span class="nt">-b</span> reduced-tax-rate
+</code></pre></div> <p>軽減税率などの導入のためにクラスを修正していきます。</p> <p>ファイル<code>ConsumptionTax\消費税区分.cs</code>を追加します。</p> <div class="highlight"><pre class="highlight csharp"><code><span class="k">namespace</span> <span class="nn">ConsumptionTax</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">enum</span> <span class="err">消費税区分</span>
+    <span class="p">{</span>
+        <span class="err">通常</span><span class="p">,</span>
+        <span class="err">軽減税率</span><span class="p">,</span>
+        <span class="err">なし</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div> <p>ファイル<code>ConsumptionTax\消費税.cs</code>を次のように修正します。</p> <div class="highlight"><pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.ComponentModel</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">ConsumptionTax</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="err">消費税</span>
+    <span class="err">{</span>
+        <span class="nc">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="err">消費税額</span><span class="p">(</span><span class="kt">int</span> <span class="err">税抜金額</span><span class="p">,</span> <span class="err">消費税区分</span> <span class="err">消費税区分</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="err">消費税区分</span> <span class="p">==</span> <span class="err">消費税区分</span><span class="p">.</span><span class="err">通常</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">var</span> <span class="err">税額</span> <span class="p">=</span> <span class="err">税抜金額</span> <span class="p">*</span> <span class="m">0.10</span><span class="n">m</span><span class="p">;</span>
+                <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Floor</span><span class="p">(</span><span class="err">税額</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="err">消費税区分</span> <span class="p">==</span> <span class="err">消費税区分</span><span class="p">.</span><span class="err">軽減税率</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">var</span> <span class="err">税額</span> <span class="p">=</span> <span class="err">税抜金額</span> <span class="p">*</span> <span class="m">0.08</span><span class="n">m</span><span class="p">;</span>
+                <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Floor</span><span class="p">(</span><span class="err">税額</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="err">消費税区分</span> <span class="p">==</span> <span class="err">消費税区分</span><span class="p">.</span><span class="err">なし</span><span class="p">)</span> <span class="k">return</span> <span class="err">税抜金額</span><span class="p">;</span>
+
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidEnumArgumentException</span><span class="p">(</span><span class="k">nameof</span><span class="p">(</span><span class="err">消費税区分</span><span class="p">),</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="err">消費税区分</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="err">消費税区分</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div> <p>ファイル<code>ConsumptionTax.Tests\消費税のテスト.cs</code>を次のように修正します。コードカバレッジを分析したときに面白くなるように、わざとテストパターンを不足させています。</p> <div class="highlight"><pre class="highlight csharp"><code><span class="k">using</span> <span class="nn">Xunit</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">ConsumptionTax.Tests</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="err">消費税のテスト</span>
+    <span class="err">{</span>
+        <span class="err">[</span><span class="nc">Fact</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="err">税抜</span><span class="m">100</span><span class="err">円の消費税額は</span><span class="m">10</span><span class="err">円</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">actual</span> <span class="p">=</span> <span class="err">消費税</span><span class="p">.</span><span class="err">消費税額</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="err">消費税区分</span><span class="p">.</span><span class="err">通常</span><span class="p">);</span>
+
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="p">[</span><span class="n">Fact</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="err">税抜</span><span class="m">100</span><span class="err">円の消費税額は</span><span class="m">8</span><span class="err">円</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">actual</span> <span class="p">=</span> <span class="err">消費税</span><span class="p">.</span><span class="err">消費税額</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="err">消費税区分</span><span class="p">.</span><span class="err">軽減税率</span><span class="p">);</span>
+
+            <span class="n">Assert</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div> <p>コミットしてGitLabにプッシュ後、マージリクエストを作成してください。</p> <p>このブランチのパイプライン処理が完了したら、マージリクエストからテスト結果やコードカバレッジにアクセスできるようになります。</p> <h3 id="総カバレッジ率-1">総カバレッジ率</h3> <p>作成したマージリクエストの<code>概要</code>タブの<code>パイプライン #...</code>のすぐ下にある<code>Test coverage...</code>の部分で、総カバレッジ率とマージリクエストでの増減がわかります。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/total-coverage-rate.png" alt="総カバレッジ率" class="shadow medium center"> 総カバレッジ率</p> <p>ここでは総カバレッジ率が71.40%で、<code>master</code>に比べ4.80%上昇しているのがわかります。</p> <p>ですが、実際の開発プロジェクトでは、マージリクエストで修正するソースコードの量と全体のソースコードの量を考えると、ほぼ変化しないことが予測されます。総カバレッジ率はともかく、増減値を見てもあまり意味はないでしょう。</p> <p>また、GitLabの該当プロジェクトのサイドメニューの<code>分析</code>-&gt;<code>リポジトリ</code>にある<code>Code coverage statistics...</code>から総カバレッジ率の推移が確認できます。こちらの推移グラフのほうが分析の役に立ちそうです。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/code_coverage_graph_v13_1.png" alt="総カバレッジ率の推移グラフ" class="shadow medium center"> 総カバレッジ率の推移グラフ</p> <p>(サンプルプロジェクトの推移グラフはデータが少なくて面白くないので、<a href="https://docs.gitlab.com/ee/ci/pipelines/settings.html#view-code-coverage-history">GitLabの公式ドキュメント</a>から画像を引用しています)</p> <h3 id="コード差分でのコードカバレッジ">コード差分でのコードカバレッジ</h3> <p>作成したマージリクエストの<code>変更</code>タブで、コードカバレッジを確認できます。(緑や赤の縦線が表示されないときはウェブブラウザーをリロードしてみてください)</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/code-coverage.png" alt="マージリクエストのコード差分でのコードカバレッジ" class="shadow medium center"> マージリクエストのコード差分でのコードカバレッジ</p> <p>緑の縦線がテストで実行された行、赤の縦線がテストで実行されていない行になります。</p> <p>見ての通り、<code>消費税区分.なし</code>と異常な消費税区分のテストケースが不足していることを発見できます。テストケースにこれらを加える必要があることがわかりました。</p> <h3 id="詳細なコードカバレッジレポート-1">詳細なコードカバレッジレポート</h3> <p>作成したマージリクエストの<code>概要</code>タブの<code>1 件の公開されたアーティファクトを表示</code>をクリックし、続けて<code>coverage</code>-&gt;<code>coverage</code>-&gt;<code>index.html</code>とクリックすると、詳細なHTML化されたコードカバレッジレポートにアクセスできます。</p> <p>コード差分でのコードカバレッジで確認できることに加え、変更のないコードのコードカバレッジやクラスごとのカバレッジ率も確認できます。</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/coverage-report-summary.png" alt="コードカバレッジの概要" class="shadow medium center"> コードカバレッジの概要</p> <p class="note text-center"><img src="./GitLabでコードカバレッジ _ GitLab.JP_files/coverage-report-class.png" alt="クラスごとの詳細なコードカバレッジ" class="shadow medium center"> クラスごとの詳細なコードカバレッジ</p> <p>一般的に、ビジネスロジック中心のクラスはカバレッジ率が高い傾向にあります。ビジネスロジッククラスなのにもかかわらず、他よりカバレッジ率が低いクラスがあれば、クラスの詳細レポートを開いて、テストケース不足がないか分析すると良いでしょう。</p> <h2 id="最後に">最後に</h2> <p>コードカバレッジを利用すると、テストケースが不足しているところを見つけるのに役立ちます。GitLabで(特にマージリクエストで)コードカバレッジを確認できるようにすると大変便利です。</p> <p>開発者が自身の書いたコードのテストケース不足に気がつく手助けになりますし、レビュアーや品質管理者がレポートにすぐにアクセスできるので、広域な分析がやりやすくなります。</p> <p>ですが、コードカバレッジでは、不足したテストケースを全て発見できるわけではありません。</p> <p>今回の分析で見つかった、消費税なしや異常な区分のテストを追加すれば、コードカバレッジ率は100%になります。しかし、実際には小数を切り捨てているかどうかのテストケースが不足しています。(例えば、15円の消費税は1円や、19円の消費税は1円のテストケースが必要)このことはコードカバレッジのレポートからはわかりません。</p> <p>コードカバレッジを無闇矢鱈に信用するのはよくありませんが、品質の向上のための道具の一つと割り切れば、かなり有用です。</p> <p>GitLabでコードカバレッジを分析し、品質の向上につなげていきましょう!</p> <h2 id="サンプルプロジェクトを書き換えたい方向け-おまけ">サンプルプロジェクトを書き換えたい方向け (おまけ)</h2> <ol> <li>GitLabのプロジェクトの作成で、<code>プロジェクトのインポート</code>をクリックします</li> <li><code>Import project from</code>で<code>リポジトリURL</code>をクリックします</li> <li><code>Git リポジトリ URL</code>に<code>https://gitlab.com/creationline/gitlab-coverage-dotnet-sample.git</code>をコピペします</li> <li><code>プロジェクトを作成</code>ボタンをクリックします</li> </ol> <p>この方法でプロジェクトを作成しても、パイプラインが実行されません。パイプラインを手動で実行してください。</p> <ol> <li>サイドメニューの<code>CI/CD</code> -&gt;<code>パイプライン</code>をクリックし、パイプラインページを開きます</li> <li><code>Run pipeline</code>をクリックし、<code>Run for branch name or tag</code>で<code>master</code>ブランチを選択して<code>Run pipeline</code>をクリックしてパイプラインを開始します</li> <li><code>reduced-tax-rate</code>ブランチも同様にパイプラインを開始します</li> <li>サイドメニューから<code>マージリクエスト</code>をクリックし、<code>reduced-tax-rate</code>ブランチのマージリクエストをを作成します</li> </ol> <p>以上で完了です。</p> <p>作成したマージリクエストで、コードカバレッジを確認し、テスト不足を修正してコードカバレッジを再度確認してみてください。</p> <div class="panel panel-default twitter-block"> <a class="twitter-block-link panel-body" href="http://twitter.com/share?text=GitLab%E3%81%A7%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8%20via%20@tomo_masakura&amp;url=https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/&amp;hashtags=" rel="nofollow" target="_blank" title="Tweet!"> <span class="twitter-text pull-left"> GitLabでコードカバレッジ via @tomo_masakura </span> <span class="click-to-tweet"> ツイートする <i class="fab fa-twitter"></i> </span> </a> </div> </div> <div class="social"> <div class="share-butons clearfix"> <a class="share-btn share-btn-facebook" href="http://www.facebook.com/sharer.php?u=https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/" onclick="openSocialLink(this, 500, 400); return false;" target="_blank"> <i class="fab fa-facebook"></i> <span class="sr-only"> Facebook で共有 </span> </a> <a class="share-btn share-btn-twitter" href="http://twitter.com/share?url=https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/&amp;text=GitLab%E3%81%A7%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8" onclick="openSocialLink(this, 500, 400); return false;" target="_blank"> <i class="fab fa-twitter"></i> <span class="sr-only"> Twitter で共有 </span> </a> <a class="share-btn share-btn-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.gitlab.jp/blog/2021/09/27/gitlab-coverage-dotnet/&amp;title=GitLab%E3%81%A7%E3%82%B3%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%AC%E3%83%83%E3%82%B8&amp;summary=&amp;source=" onclick="openSocialLink(this, 500, 400); return false;" target="_blank"> <i class="fab fa-linkedin"></i> <span class="sr-only"> LinkedIn で共有 </span> </a> </div> </div> <nav aria-label="Blog post pager"> <ul class="pager"> <li class="pull-left"> <a href="https://www.gitlab.jp/blog/2021/09/02/gitlab-13-dot-4-update-news-letter/" title="GitLab 13.4アップデートニュースレター"><i class="fa fa-chevron-left"></i> 前の記事 </a></li> <li class="pull-right"> <a href="https://www.gitlab.jp/blog/2021/12/04/lightweight-codequality/" title="静的コード解析と軽量Code Quality">次の記事 <i class="fa fa-chevron-right"></i> </a></li> </ul> </nav> </div> <footer class="footer"> <svg width="65" height="60" viewBox="0 0 210 194" class="footer-logo"> <path d="M105.0614,193.655 L105.0614,193.655 L143.7014,74.734 L66.4214,74.734 L105.0614,193.655 L105.0614,193.655 Z" fill="#E24329" class="logo-svg-shape logo-dark-orange-shape"></path> <path d="M105.0614,193.6548 L66.4214,74.7338 L12.2684,74.7338 L105.0614,193.6548 Z" fill="#FC6D26" class="logo-svg-shape logo-orange-shape"></path> <path d="M12.2685,74.7341 L12.2685,74.7341 L0.5265,110.8731 C-0.5445,114.1691 0.6285,117.7801 3.4325,119.8171 L105.0615,193.6551 L12.2685,74.7341 Z" fill="#FCA326" class="logo-svg-shape logo-light-orange-shape"></path> <path d="M12.2685,74.7342 L66.4215,74.7342 L43.1485,3.1092 C41.9515,-0.5768 36.7375,-0.5758 35.5405,3.1092 L12.2685,74.7342 Z" fill="#E24329" class="logo-svg-shape logo-dark-orange-shape"></path> <path d="M105.0614,193.6548 L143.7014,74.7338 L197.8544,74.7338 L105.0614,193.6548 Z" fill="#FC6D26" class="logo-svg-shape logo-orange-shape"></path> <path d="M197.8544,74.7341 L197.8544,74.7341 L209.5964,110.8731 C210.6674,114.1691 209.4944,117.7801 206.6904,119.8171 L105.0614,193.6551 L197.8544,74.7341 Z" fill="#FCA326" class="logo-svg-shape logo-light-orange-shape"></path> <path d="M197.8544,74.7342 L143.7014,74.7342 L166.9744,3.1092 C168.1714,-0.5768 173.3854,-0.5758 174.5824,3.1092 L197.8544,74.7342 Z" fill="#E24329" class="logo-svg-shape logo-dark-orange-shape"></path> </svg> <div class="animated container"> <ul class="text-center footer-social"> <li> <a href="https://twitter.com/gitlabjp"><i class="fab fa-twitter"></i> <span class="sr-only">Twitter</span> </a></li> </ul> <div class="footer-links-container"> <div class="footer-link-holder"> <ul class="animated footer-links"> <li> <a href="https://www.gitlab.jp/about/" class="footer-nav-link">このサイトについて</a> </li> </ul> </div> <div class="footer-link-holder"> <ul class="animated footer-links"> <li> <a href="https://www.gitlab.jp/privacy-policy/" class="footer-nav-link">プライバシーポリシー</a> </li> </ul> </div> </div> </div> </footer> <div class="animated text-center source-link"> <div class="edit-on"> <a href="https://gitlab.com/gitlab-jp/www-gitlab-jp/blob/master/source/blog/blog-posts/2021/09/27/gitlab-coverage-dotnet/index.html.md.erb" class="external-source-link" target="_blank">このページを編集</a> — <a href="https://gitlab.com/gitlab-jp/www-gitlab-jp/blob/master/CONTRIBUTING.md" class="external-source-link" target="_blank">貢献</a>をお願いします <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank"> <img src="./GitLabでコードカバレッジ _ GitLab.JP_files/by-sa.svg" alt="Creative Commons License"> </a> </div> <div class="warning"> このページの情報は古くなっている可能性があります。 最新の情報は <a href="https://about.gitlab.com/" class="external-source-link">本家サイト</a> でご確認ください。 </div> </div> <script src="./GitLabでコードカバレッジ _ GitLab.JP_files/jquery.min.js.ダウンロード"></script> <script src="./GitLabでコードカバレッジ _ GitLab.JP_files/bootstrap.min.js.ダウンロード"></script> <script src="./GitLabでコードカバレッジ _ GitLab.JP_files/jqBootstrapValidation.js.ダウンロード"></script> <script src="./GitLabでコードカバレッジ _ GitLab.JP_files/scripts.js.ダウンロード"></script> <div class="sticky-banner js-sticky-banner active" id="sticky-banner"> <div class="sticky-banner-content" id="sticky-banner-content"> <div class="sticky-banner-text"></div> <div class="sticky-banner-text"><p class="header-text"><a href="https://www.creationline.com/gitlab/casestudy">GitLabコンサルティングの提供を開始</a></p><p class="subheader-text">GitLabの導入支援やCI/CDパイプラインの設計など、詳細はお問い合わせください。</p></div></div> <img src="./GitLabでコードカバレッジ _ GitLab.JP_files/x.svg" id="dismiss-trial" class="dismiss-trial" alt="Gitlab x icon svg"> </div> <script>
+  (function() {
+    var trialDismissed = false
+    document.getElementById("dismiss-trial").addEventListener("click", dismissTrial)
+    function dismissTrial() {
+      document.getElementById('sticky-banner').style.display = "none";
+    }
+  
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+  
+    var banners = [
+      {
+        "title": "GitLab無償版への日本語サポートの提供を開始",
+        "subTitle": "提供内容の詳細はお問い合わせください。",
+        "link": "https://www.creationline.com/gitlab/pricing",
+      },
+      {
+        "title": "GitLab有償版ライセンスを購入する",
+        "subTitle": "2022年10月19日に無償版SaaS Freeでの利用は5ユーザーまでに制限されます。",
+        "link": "https://www.creationline.com/contact?_product_page=gitlab",
+      },
+      {
+        "title": "GitLabコンサルティングの提供を開始",
+        "subTitle": "GitLabの導入支援やCI/CDパイプラインの設計など、詳細はお問い合わせください。",
+        "link": "https://www.creationline.com/gitlab/casestudy",
+      },
+      //{
+      //  "title": "[無料] GitLab CI/CDハンスオンウェビナーを開催",
+      //  "subTitle": "GitLab MVP受賞者から学べるチャンス！お申し込みは2023年1月4日まで",
+      //  "link": "https://service.creationline.com/230111_gitlab-hands-on-webinar",
+      //},
+      //{
+      //  "title": "GitLabトレーニングを開催",
+      //  "subTitle": "GitLabスキル底上げトレーニング！お申し込みは2023年3月8日まで",
+      //  "link": "https://www.creationline.com/gitlab-training",
+      //},
+      //{
+      //  "title": "Gitトレーニングを開催",
+      //  "subTitle": "Gitスキル底上げトレーニング！お申し込みは2023年1月17日まで",
+      //  "link": "https://www.creationline.com/git-training",
+      //},
+    ]
+  
+    var selectedIndex = getRandomInt(banners.length);
+    var banner = banners[selectedIndex];
+  
+    var content = document.getElementById('sticky-banner-content');
+  
+    var text = document.createElement('div');
+    text.className = 'sticky-banner-text';
+  
+    var headerText = document.createElement('p');
+    headerText.className = 'header-text';
+  
+    var link = document.createElement('a');
+    link.text = banner.title;
+    link.href = banner.link;
+  
+    headerText.appendChild(link);
+  
+    var subText = document.createElement('p');
+    subText.className = 'subheader-text';
+  
+    var subTextNode = document.createTextNode(banner.subTitle);
+  
+    subText.appendChild(subTextNode);
+  
+    text.appendChild(headerText);
+    text.appendChild(subText);
+  
+    content.appendChild(text)
+  })();
+</script> </div>  </body></html>
